@@ -1,0 +1,42 @@
+# Compliance from Day One
+
+**Building an auditor-grade GRC program for a real, running app.**
+
+I'm Muhammad Khas, a security engineer moving into Governance, Risk & Compliance. Instead of assessing a made-up company, I'm running a full GRC program on an app I built and operate: **Khas Tracker**, a private, end-to-end encrypted daily-life and fitness tracker on AWS. The program is set up as if it were a startup preparing for its first SOC 2 Type I and customer security reviews.
+
+Try the app's demo (fake data, stays in your browser): https://khas.tracker.muhammad-khas.com
+
+## Ground rules
+
+- **No invented evidence.** If a control isn't implemented, it's a gap with a remediation item, not a pass.
+- **Decisions are mine and recorded.** Risk scores, risk acceptance and scoping are logged in [PROGRESS.md](PROGRESS.md).
+- **AI-assisted, human-owned.** I use AI tools to help draft and build. I make every decision and can defend every artifact.
+- **Safe to be public.** No secrets, account identifiers or exploitable details of open weaknesses. The app's source repo is private, so evidence from it is quoted with a commit reference.
+
+## Phases
+
+| # | Phase | Status | Release |
+|---|---|---|---|
+| 0 | [Scope & system description](00-scope/) | In progress | |
+| 1 | [Risk assessment](01-risk/) | Not started | |
+| 2 | [Control framework & mapping](02-controls/) | Not started | |
+| 3 | [Policies](03-policies/) | Not started | |
+| 4 | [Evidence automation](04-evidence-automation/) | Not started | |
+| 5 | [Third-party risk](05-third-party-risk/) | Not started | |
+| 6 | [Privacy](06-privacy/) | Not started | |
+| 7 | [Incident response](07-incident-response/) | Not started | |
+| 8 | [Internal audit / SOC 2 readiness](08-audit/) | Not started | |
+| 9 | [Continuous monitoring & maturity](09-continuous-monitoring/) | Not started | |
+
+## How this repo works as a GRC system
+
+| GRC concept | Where it lives |
+|---|---|
+| Remediation items (POA&M) and audit findings | GitHub Issues, labeled `gap` / `finding` / `risk-accepted` |
+| Phases | Milestones, each closed with a tagged release |
+| Policy approval and change history | Pull requests: the merge is the approval record |
+| Decisions | The decisions log in [PROGRESS.md](PROGRESS.md) |
+
+## Key results
+
+Filled in as phases finish.
