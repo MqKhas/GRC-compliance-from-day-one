@@ -134,7 +134,7 @@ A fuller diagram is in [boundary-diagram.md](boundary-diagram.md) and data flows
 | Personal website in the same AWS account | Out (carved out) | Static, holds no user data | D-007 |
 | AWS account, root and admin identities, billing, domain and DNS | In | Shared with the personal site, and can affect the tracker | D-007 |
 | GitHub repository and Actions | In | A push to `main` deploys to production | |
-| Apple Account and Google account of the administrator | In | They protect the AWS credentials and the GitHub sign-in | D-008 (proposed) |
+| Apple Account and Google account of the administrator | In | They protect the AWS credentials and the GitHub sign-in | D-008 |
 | Users' devices, browsers, mail and authenticator apps | Out | Controlled by users. Covered by complementary user entity controls (section 6) | |
 
 ## 5. Subservice organizations and complementary subservice organization controls (CSOCs)
