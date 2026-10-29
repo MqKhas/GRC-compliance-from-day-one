@@ -31,6 +31,12 @@ Questions from the end-of-phase quizzes. For each one: my answer first, then fee
 
 **Model answer:** "A subservice organization is a vendor that runs part of my service. For my app that's AWS. I use the carve-out method, so I don't test AWS's data center controls; I rely on their SOC 2 report and list the controls I'm assuming they perform, which are the CSOCs. A complementary user entity control is something the customer has to do. For me, the big one is that users must protect their passphrase and recovery code, because if they lose both, no one can recover their data."
 
+**Retry (2026-10-29):** A subservice org is a service that is being utilized under you. In this case, it's AWS, GitHub. While a complementary user entity control is what a person/user USING my service (the app) needs to do to continue using the app, which is saving the password/mfa/passphrase/username, making sure not to leave their phone open and laying around, etc.
+
+**Feedback on retry:** Correct now, with the right examples for both. Two refinements:
+- Say "a vendor that performs part of my service," not "under you." Then add the carve-out: "I don't test AWS's controls myself; I rely on their SOC 2 report."
+- A CUEC isn't what users do "to continue using the app." It's what they must do **for my controls to work**. If a user leaks their passphrase, my encryption worked perfectly and their data is still exposed. That's why the duty gets written down.
+
 ### Q4. "You only have 10 users who are friends and family. Why bother classifying data as health, religious or third-party?"
 
 **My answer:** Because that IS what the data is. And because I want to practice increasing my security and GRC posture.
@@ -38,6 +44,10 @@ Questions from the end-of-phase quizzes. For each one: my answer first, then fee
 **Feedback:** The first sentence is the right instinct. Drop the second in an interview, because it makes the work sound like a hobby instead of a judgment. Add *why* it matters: harm to a person doesn't shrink because the user count is small, classification decides how strong the controls must be, some health-data laws have no size threshold, and third-party people never agreed to be recorded.
 
 **Model answer:** "Because classification follows the data, not the user count. Mood, blood pressure and religious practice are special-category data, and if they leaked, the harm to one person is the same whether I have 10 users or 10,000. Classification is also what decides control strength. It's why I treat metadata as confidential and backups as part of retention. And some of it is about people who never signed up, like a spouse in a wellbeing check-in, which raises the bar further."
+
+**Retry (2026-10-29):** Classifying the data, firstly, because that is what the data is. Secondly, it helps us decide what type of controls we need to construct AROUND the data.
+
+**Feedback on retry:** Much stronger. "Classification drives the controls" is the core idea, and it's said like a practitioner now. To make it complete, add one concrete example: "Health and mood data are Restricted, which is why they're encrypted on the device and why backups count toward retention."
 
 ### Q5. "You're the only admin. Isn't SOC 2 kind of pointless for a one-person company?"
 
