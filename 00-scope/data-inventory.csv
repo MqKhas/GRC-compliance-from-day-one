@@ -1,0 +1,30 @@
+id,category,data,flags,classification,stored_where,admin_readable,form_at_rest_in_cloud,retention
+D-01,User content,"Weight, blood pressure, pulse, waist, sleep",HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-02,User content,"Calories, protein, meals",HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-03,User content,"Training programs, exercise logs, phase tests",HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-04,User content,"Wellbeing check-ins about the user",MENTAL-HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-05,User content,"Wellbeing check-ins about other named people","MENTAL-HEALTH; THIRD-PARTY",Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-06,User content,"Qadha prayer and fast counts",RELIGION,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-07,User content,"Home & Marriage tasks, chores, notes, plans",THIRD-PARTY,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-08,User content,"Friends & Family names, relation, last contact, notes",THIRD-PARTY,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-09,User content,"Goals, weekly reviews, sick and travel days, follow-ups",HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-10,User content,"Settings and lists",,Internal,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-11,Keys and secrets,"Data passphrase",CREDENTIAL,Restricted,"User's memory only",No,Not stored,n/a
+D-12,Keys and secrets,"Recovery code",CREDENTIAL,Restricted,"Shown once on device; optionally in user's own mailbox",No,Not stored,Until replaced
+D-13,Keys and secrets,"Keyring (wrapped data key)",CREDENTIAL,Restricted,"Device; DynamoDB; backups",Wrapped form only,Ciphertext,"Life of account; backups up to 3 years"
+D-14,Keys and secrets,"Unlocked data key",CREDENTIAL,Restricted,"Device IndexedDB (non-extractable) while unlocked",No,Not in cloud,Cleared on lock
+D-15,Account,"User email address",,Confidential,Cognito,Yes,AWS-managed encryption,Life of account
+D-16,Account,"Login password",CREDENTIAL,Restricted,Cognito,No,AWS-managed,Life of account
+D-17,Account,"TOTP secret",CREDENTIAL,Restricted,"Cognito; user's authenticator",No,AWS-managed,Life of account
+D-18,Account,"Account status and timestamps",,Confidential,Cognito,Yes,AWS-managed encryption,Life of account
+D-19,Account,"Session tokens",CREDENTIAL,Restricted,Device,No,Not in cloud,"1 hour; refresh 30 days"
+D-20,Account,"Temporary password in invitation email",CREDENTIAL,Restricted,"SES; user's mailbox",No,In transit,"Valid 7 days; stays in mailbox"
+D-21,Metadata,"Record names, timestamps, version, size, deleted flag",,Confidential,"DynamoDB; backups",Yes,AWS-managed encryption,Same as record
+D-22,Operational,"Lambda error logs",,Internal,CloudWatch Logs,Yes,AWS-managed encryption,14 days
+D-23,Operational,"Billing and budget alerts",,Internal,"AWS; admin email",Yes,n/a,Per AWS and mailbox
+D-24,Operational,"User support requests",,Confidential,"Admin phone and email",Yes,n/a,Not defined
+D-25,Administrative,"Administrator credentials and MFA",CREDENTIAL,Restricted,"Admin password manager; identity providers",Owner only,n/a,Ongoing
+D-26,Administrative,"App and infrastructure source code",,Confidential,"Private GitHub repo; admin computer",Yes,n/a,Ongoing
+D-27,Administrative,"Deployed app files",,Public,S3 behind CloudFront,Yes,S3-managed encryption,Replaced each deploy
+D-28,Administrative,"Stack identifiers",,Confidential,"AWS; config.json",Yes,n/a,Ongoing
+D-29,Demo,"Demo sample data",,Public,"Browser tab memory only",n/a,Not stored,Until tab closed
