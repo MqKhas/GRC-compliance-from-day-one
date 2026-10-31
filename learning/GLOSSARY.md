@@ -1,8 +1,8 @@
 # Glossary
 
-Plain-language definitions, plus how I'd say each one in an interview. Added as terms come up.
+Plain-language definitions, plus how I'd explain each one in a sentence. Added as terms come up.
 
-| Term | What it means | How I'd say it in an interview |
+| Term | What it means | In one sentence |
 |---|---|---|
 | GRC | Governance (who decides and how), Risk (what could go wrong and how much it matters), Compliance (proving you meet a standard or law) | "GRC is how a company decides what security it needs, and then proves it's actually doing it." |
 | SOC 2 | An attestation report by a CPA firm on a service company's controls, judged against the AICPA Trust Services Criteria | "SOC 2 is how a SaaS company shows customers its controls are real, through an independent auditor." |
