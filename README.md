@@ -18,7 +18,7 @@ Try the app's demo (fake data, stays in your browser): https://khas.tracker.muha
 | # | Phase | Status | Release |
 |---|---|---|---|
 | 0 | [Scope & system description](00-scope/) | Done | [v0.1-scope](https://github.com/MqKhas/GRC-compliance-from-day-one/releases/tag/v0.1-scope) |
-| 1 | [Risk assessment](01-risk/) | Not started | |
+| 1 | [Risk assessment](01-risk/) | Done | v0.2-risk |
 | 2 | [Control framework & mapping](02-controls/) | Not started | |
 | 3 | [Policies](03-policies/) | Not started | |
 | 4 | [Evidence automation](04-evidence-automation/) | Not started | |
@@ -40,3 +40,4 @@ Try the app's demo (fake data, stays in your browser): https://khas.tracker.muha
 ## Key results
 
 - **Phase 0:** 29 data elements inventoried and classified, including 9 that are health, mental health, religious or about people without accounts. 10 compliance triggers documented. 9 scoping and strategy decisions logged.
+- **Phase 1:** 19 risks assessed with NIST SP 800-30 and mapped to 20 MITRE ATT&CK technique IDs. Existing controls bring 9 High or Very High inherent risks down to none; 6 are Moderate today, and the treatment plan takes all but one to Low or Very Low. 16 risks to mitigate, 3 accepted in writing.
