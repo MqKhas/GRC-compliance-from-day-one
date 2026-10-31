@@ -4,7 +4,7 @@
 
 | # | Phase | Started | Finished | Post | Release |
 |---|---|---|---|---|---|
-| 0 | Scope & system description | 2026-10-27 | | | |
+| 0 | Scope & system description | 2026-10-27 | 2026-10-31 | | `v0.1-scope` |
 | 1 | Risk assessment | | | | |
 | 2 | Control framework & mapping | | | | |
 | 3 | Policies | | | | |
@@ -34,3 +34,4 @@ Every scoping, risk and treatment decision, with the options I considered and wh
 ## Session notes
 
 - 2026-10-27: Repo set up. Phase 0 started.
+- 2026-10-31: Phase 0 finished: system description, boundary and data flow diagrams, data inventory (29 elements), compliance triggers (T-01 to T-10), ISMS scope statement. Decisions D-001 to D-009.

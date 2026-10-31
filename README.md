@@ -17,7 +17,7 @@ Try the app's demo (fake data, stays in your browser): https://khas.tracker.muha
 
 | # | Phase | Status | Release |
 |---|---|---|---|
-| 0 | [Scope & system description](00-scope/) | In progress | |
+| 0 | [Scope & system description](00-scope/) | Done | [v0.1-scope](https://github.com/MqKhas/GRC-compliance-from-day-one/releases/tag/v0.1-scope) |
 | 1 | [Risk assessment](01-risk/) | Not started | |
 | 2 | [Control framework & mapping](02-controls/) | Not started | |
 | 3 | [Policies](03-policies/) | Not started | |
@@ -39,4 +39,4 @@ Try the app's demo (fake data, stays in your browser): https://khas.tracker.muha
 
 ## Key results
 
-Filled in as phases finish.
+- **Phase 0:** 29 data elements inventoried and classified, including 9 that are health, mental health, religious or about people without accounts. 10 compliance triggers documented. 9 scoping and strategy decisions logged.
