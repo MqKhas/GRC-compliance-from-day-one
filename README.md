@@ -2,7 +2,7 @@
 
 **Building an auditor-grade GRC program for a real, running app.**
 
-I'm Muhammad Khas, a security engineer moving into Governance, Risk & Compliance. Instead of assessing a made-up company, I'm running a full GRC program on an app I built and operate: **Khas Tracker**, a private, end-to-end encrypted daily-life and fitness tracker on AWS. The program is set up as if it were a startup preparing for its first SOC 2 Type I and customer security reviews.
+I'm Muhammad Khas, a security engineer moving into Governance, Risk & Compliance. Instead of assessing a made-up company, I'm running a full GRC program on an app I built and operate: **Khas Tracker**, a private, end-to-end encrypted daily-life and fitness tracker on AWS. The program is set up as if it were a startup preparing for its first SOC 2 Type I, ISO 27001 certification, and customer security reviews. One set of controls is mapped to SOC 2, ISO 27001:2022, NIST CSF 2.0, NIST SP 800-53 and SP 800-171, and every framework considered is documented as adopted, used as a reference, or not applicable.
 
 Try the app's demo (fake data, stays in your browser): https://khas.tracker.muhammad-khas.com
 
