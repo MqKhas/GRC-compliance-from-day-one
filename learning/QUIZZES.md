@@ -1,6 +1,6 @@
-# Interview Prep
+# Quizzes
 
-Questions from the end-of-phase quizzes. For each one: my answer first, then feedback and a model answer. Practice saying these out loud.
+At the end of each phase I quiz myself on what I just built. For each question: my answer first, then feedback and a model answer.
 
 ## Phase 0 — Scope & system description (2026-10-29)
 
@@ -41,7 +41,7 @@ Questions from the end-of-phase quizzes. For each one: my answer first, then fee
 
 **My answer:** Because that IS what the data is. And because I want to practice increasing my security and GRC posture.
 
-**Feedback:** The first sentence is the right instinct. Drop the second in an interview, because it makes the work sound like a hobby instead of a judgment. Add *why* it matters: harm to a person doesn't shrink because the user count is small, classification decides how strong the controls must be, some health-data laws have no size threshold, and third-party people never agreed to be recorded.
+**Feedback:** The first sentence is the right instinct. The second is about me, not the data, so it doesn't answer the question. Add *why* it matters: harm to a person doesn't shrink because the user count is small, classification decides how strong the controls must be, some health-data laws have no size threshold, and third-party people never agreed to be recorded.
 
 **Model answer:** "Because classification follows the data, not the user count. Mood, blood pressure and religious practice are special-category data, and if they leaked, the harm to one person is the same whether I have 10 users or 10,000. Classification is also what decides control strength. It's why I treat metadata as confidential and backups as part of retention. And some of it is about people who never signed up, like a spouse in a wellbeing check-in, which raises the bar further."
 

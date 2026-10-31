@@ -13,5 +13,8 @@ This is checked at every quarterly review (Phase 9), and `accounts.sh create` is
 | T-05 | Any **payment**, ad or monetization is added | Not met (2026-10-28) | Turns a personal project into a business: consumer protection, tax, payment card rules and many privacy law thresholds | Full scope re-review |
 | T-06 | A **second person** gets admin access to AWS or GitHub | Not met (2026-10-28) | Changes access control, separation of duties and onboarding/offboarding | Access review process; role-based access; offboarding procedure |
 | T-07 | Any feature that can read **unencrypted** user data server-side (search, AI, analytics) | Not met (2026-10-28) | Breaks the end-to-end encryption assumption that much of the risk and privacy analysis depends on | Full risk and privacy re-assessment |
+| T-08 | A user lives in the **EU or UK**, or data is processed there | Not met (2026-10-31) | GDPR / UK GDPR would apply. Health and religious data are special categories (Article 9) and need an explicit legal basis. A DPIA would likely be required | Lawful basis and explicit consent; DPIA; data transfer review; GDPR-style rights process; update privacy notice |
+| T-09 | The service is offered to a **US federal agency** or a **defense contractor**, or holds Controlled Unclassified Information | Not met (2026-10-31) | FedRAMP, NIST SP 800-171 and CMMC could apply | Full framework applicability re-review |
+| T-10 | The service is offered to, or on behalf of, a **healthcare provider or health plan** | Not met (2026-10-31) | Would make the operator a HIPAA business associate | HIPAA applicability review; business associate agreement |
 
-Decisions behind this list: D-005 (minors), D-006 (non-user data) in [PROGRESS.md](../PROGRESS.md).
+Decisions behind this list: D-005 (minors), D-006 (non-user data), D-009 (framework strategy) in [PROGRESS.md](../PROGRESS.md).
