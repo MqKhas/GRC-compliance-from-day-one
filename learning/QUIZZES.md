@@ -56,3 +56,45 @@ At the end of each phase I quiz myself on what I just built. For each question: 
 **Feedback:** Right instinct, and good that you named the gap yourself. Make it more professional: skip "muscle memory" and "wolves," and show *how* you handle the gap (compensating controls and documented risk acceptance). That's the GRC answer.
 
 **Model answer:** "Not pointless, but it has to be scaled. Plenty of companies go through SOC 2 with only a handful of people. The framework asks whether controls fit the risk, not whether you have a big team. The real gap for me is separation of duties: I write, approve and deploy every change. I can't fix that with one person, so I document it as an accepted risk and add compensating controls: tests that must pass before deploy, a change history that can't be quietly rewritten, and a record of every release. The goal isn't zero gaps. It's that every gap is known, owned and managed."
+
+## Phase 1 — Risk assessment (2026-10-31)
+
+### Q1. "Walk me through how you scored R-01, the admin identity risk. Why is it Moderate and not High?"
+
+**My answer:** The way I thought about this was about Likelihood vs Impact. The likelihood of this happening is low because I have strong controls around my admin identity. I have a strong password as well as 2fa. The impact if it does happen could be devastating. They could completely wipe out the code for the app. If one of my other accounts gets compromised, then it takes out the password/2fa, because the attacker will have both. To say it simply, the likelihood is low but the impact is Very High.
+
+**Feedback:** Right structure and right scores (Low × Very High). Three fixes:
+- Name the method. It's Moderate because SP 800-30 Table I-2 says Low × Very High = Moderate. It would be High only if likelihood were Moderate. That's the actual answer to "why not High."
+- "Strong controls" oversells it. The weakness *is* the control: the second factor isn't independent of the password, which is exactly why likelihood is Low and not Very Low. You said this, but last, as an afterthought. Lead with it.
+- The impact is wrong in the detail. The code lives in GitHub, not AWS. The damage from an AWS takeover is control of production: deleting the data *and its backups*, deploying a capturing build, running up the bill.
+
+**Model answer:** "I score likelihood and impact separately, then read the level from the SP 800-30 matrix. Impact is Very High: whoever holds the AWS account controls production, can delete the data and the backups, and could serve a build that captures passphrases. Likelihood is Low, not Very Low, because MFA is on but the second factor isn't independent of the password store, so one compromise can give both. Low times Very High is Moderate on Table I-2. It isn't High because I don't see it as likely within a year. The treatment, phishing-resistant keys held separately plus locked backups, takes likelihood to Very Low, which makes it Low."
+
+### Q2. "What's the difference between inherent and current risk? And why didn't you give yourself credit for CloudTrail when scoring?"
+
+**My answer:** Inherent risk is the risk without any controls. Current risk is taking into account the controls I already have in place. Because there is a very basic CloudTrail implementation. I'm not collecting logs properly, in the sense that, I could not say what was exposed (if anything was) or explain any security alerting, as there is no alerting.
+
+**Feedback:** The definitions are right. The CloudTrail part misses the point.
+- Small refinement: inherent here means without *my system's own* controls. What AWS does (like physical security) still counts, and the methodology says so.
+- The reason for no credit isn't that CloudTrail is weak. It's that it's **unverified**. You *believe* a trail is on, but you haven't shown it. The rule is "unverified controls don't lower the score until Phase 4 proves them." "There is a very basic CloudTrail implementation" is itself an unverified claim. An auditor would stop you right there and ask for evidence.
+- What you described (can't tell what was exposed, no alerting) is the *impact* of the gap. That belongs in R-06's scoring reason, not in this answer.
+
+**Model answer:** "Inherent risk is the risk without my system's own controls; current risk counts the controls that exist today. But I only count controls I can show working. I believe a CloudTrail trail is on, but I haven't verified it, so I gave it no credit. The only logging I counted is AWS's default 90-day event history, which exists in every account. Phase 4 checks the trail with evidence, and only then would the score move. Giving credit for unverified controls is how registers end up full of green that doesn't hold up in an audit."
+
+### Q3. "R-06 is still Moderate after your treatment plan. Isn't that a failure? Defend it to an auditor."
+
+**My answer:** No this is not a failure because, once I put in my treatment plan, then that is the risk that I'm willing to accept. Just because my plan didn't change the level of risk, doesn't mean I shouldnt put in the effort to implement it. Sometimes with risks, they will always stay consistent. Example, if the likelihood is 3/4/5 but the impact is 3/4, then even if you put in controls to get the likelihood from very high to moderate and the impact from High to moderate, it still remains moderate because Likelihood vs impact risk matrix.
+
+**Feedback:** The core idea is right: residual risk that's within your criteria and accepted in writing is not a failure. Two problems:
+- The matrix example is wrong. Very High × High is **High** on Table I-2, so moving to Moderate × Moderate *does* change the level, from High to Moderate. The real point is narrower: the matrix is coarse, so a treatment can improve things without crossing a band.
+- The strongest defence is missing: it was a **deliberate, documented decision**. You chose free controls over paid GuardDuty, under an appetite that prefers free controls. The acceptance criteria allow a Moderate residual with a written reason and a 6-month review, and you named what would make you reconsider. That's what an auditor needs to hear.
+
+**Model answer:** "No. Risk management doesn't mean driving everything to Low; it means every residual risk is known, within the criteria, and owned. For R-06, I chose free controls: a verified audit trail and sign-in alerts. They make an incident far easier to investigate, but without a threat-detection service the likelihood stays where it is, so it's still Moderate. Skipping GuardDuty was a cost decision under my risk appetite, and my acceptance criteria allow a Moderate residual with a written reason. It's in the treatment plan, I signed it, and it's reviewed every six months. If there's an incident or the free controls prove too thin, GuardDuty is the first thing I revisit."
+
+### Q4. "Your app is end-to-end encrypted. So why aren't your top risks about the database?"
+
+**My answer:** Because it's encrypted, this greatly decreases the impact as it lowers the compromises to metadata/availability, but the data itself remains confidential.
+
+**Feedback:** Correct, but it only answers half the question. You said why the database dropped, not what rose to the top instead, or why. The insight is that encryption happens in code you deliver. Whoever controls that code can capture the passphrase *before* encryption happens. So the risk moves from where the data sits to where the code comes from.
+
+**Model answer:** "Because a stolen table is ciphertext. Encryption cuts a database breach down to metadata and availability. But encryption runs in code I deliver to the browser, and whoever controls that code can capture the passphrase before anything is encrypted. So my top risks are about who can change the code or the account it runs in: my admin identity, my GitHub account, the deploy pipeline's dependencies, and unreviewed changes. Encryption didn't remove the risk; it moved it from the data to the code path."
