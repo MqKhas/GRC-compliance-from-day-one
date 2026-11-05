@@ -1,0 +1,94 @@
+Annex A,Control,Applies,Why it applies or is excluded,Status,Provided by,Matrix controls,Risks,Complete by
+5.1,Policies for information security,Yes,Written policies set the rules the rest of the program follows. Phase 3 writes them,Planned,Owner,GOV-01,All,2026-12-31
+5.2,Information security roles and responsibilities,Yes,"One owner holds every role, and that needs to be written down",Implemented,Owner,GOV-02,R-13,
+5.3,Segregation of duties,Yes,"One person can't separate duties, so compensating checks take its place",Planned,Owner,GOV-03,R-02; R-03; R-04,2026-12-31
+5.4,Management responsibilities,Yes,The owner acts as management and has to direct the program,Implemented,Owner,GOV-02,R-13,
+5.5,Contact with authorities,Yes,"A serious breach could mean contacting a regulator, so the contacts have to be known",Planned,Owner,IR-01,R-01; R-02; R-06; R-07,2027-04-30
+5.6,Contact with special interest groups,Yes,Following security sources is how a solo operator keeps up,Planned,Owner,HR-02,R-01; R-02; R-07,2026-12-31
+5.7,Threat intelligence,Yes,Knowing about new threats to dependencies and cloud services drives patching,Implemented,Owner,VUL-02,R-05,
+5.8,Information security in project management,Yes,"New features, such as Parenting, get a security review through the change process",Implemented,Owner,CHG-01,R-02; R-03,
+5.9,Inventory of information and other associated assets,Yes,Protecting data starts with knowing what data exists,Implemented,Owner,DAT-01,R-10; R-11,
+5.10,Acceptable use of information and other associated assets,Yes,Sets out how the owner may use systems and data,Planned,Owner,GOV-01,All,2026-12-31
+5.11,Return of assets,No,"No staff or contractors hold organization assets, so nothing is returned. Trigger: T-06",Excluded,n/a,HR-01,,
+5.12,Classification of information,Yes,"Most of the data is sensitive, and classification sets how it's protected",Implemented,Owner,DAT-01,R-10; R-11,
+5.13,Labelling of information,Yes,Labels are the classification column of the inventory,Implemented,Owner,DAT-01,R-10; R-11,
+5.14,Information transfer,Yes,"Data moves between devices and the service, so transfers must be protected",Implemented,Owner,DAT-04,R-15; R-17,
+5.15,Access control,Yes,Access rules protect each user's data and the administrator routes,Implemented,Owner,IAM-12,R-18,
+5.16,Identity management,Yes,Every user and administrator identity has to be managed,Implemented,Owner,IAM-01; IAM-05,R-07; R-10,
+5.17,Authentication information,Yes,"Passwords, passphrases and MFA protect both the accounts and the data",Partly implemented,Owner,IAM-02; IAM-03; IAM-07; IAM-11; DAT-03,R-01; R-02; R-07; R-08; R-16; R-19,2027-01-31
+5.18,Access rights,Yes,"Access is granted, changed, reviewed and removed",Partly implemented,Owner,IAM-01; IAM-05; IAM-06,R-01; R-02; R-07; R-10,2027-01-31
+5.19,Information security in supplier relationships,Yes,The service depends on suppliers such as AWS and GitHub,Planned,Owner,VND-01,R-02; R-05; R-15,2027-02-28
+5.20,Addressing information security within supplier agreements,Yes,Supplier terms have to cover security and data handling,Planned,Owner,VND-01,R-02; R-05; R-15,2027-02-28
+5.21,Managing information security in the ICT supply chain,Yes,Software dependencies and pipeline actions could carry a supply chain attack,Partly implemented,Owner,VUL-01; VND-01,R-02; R-05; R-15,2027-02-28
+5.22,"Monitoring, review and change management of supplier services",Yes,"Supplier services and terms change, and those changes need review",Planned,Owner,VND-01,R-02; R-05; R-15,2027-02-28
+5.23,Information security for use of cloud services,Yes,The whole service runs on cloud services,Planned,Shared,VUL-04; VND-02,R-01; R-02; R-12; R-14; R-15,2027-02-28
+5.24,Information security incident management planning and preparation,Yes,A plan has to exist before an incident happens,Planned,Owner,IR-01,R-01; R-02; R-06; R-07,2027-04-30
+5.25,Assessment and decision on information security events,Yes,Events have to be assessed to decide whether they're incidents,Planned,Owner,IR-01,R-01; R-02; R-06; R-07,2027-04-30
+5.26,Response to information security incidents,Yes,Incidents need a defined response,Planned,Owner,IR-01,R-01; R-02; R-06; R-07,2027-04-30
+5.27,Learning from information security incidents,Yes,Lessons from incidents and exercises improve controls,Planned,Owner,IR-02,R-06,2027-04-30
+5.28,Collection of evidence,Yes,Evidence may be needed for notices or legal questions,Planned,Owner,IR-01,R-01; R-02; R-06; R-07,2027-04-30
+5.29,Information security during disruption,Yes,Security has to hold during an outage or recovery,Planned,Owner,IAM-11; BCK-05,R-01; R-13; R-19,2026-12-31
+5.30,ICT readiness for business continuity,Yes,"Users rely on sync and backups, and paid access would raise that expectation",Planned,Owner,BCK-04; BCK-05,R-12; R-13,2026-12-31
+5.31,"Legal, statutory, regulatory and contractual requirements",Yes,Laws and commitments that apply have to be tracked,Partly implemented,Owner,GOV-05; PRV-01; PRV-04,R-07; R-10; R-11; R-16,2027-03-31
+5.32,Intellectual property rights,Yes,The app uses open source software and third-party content,Implemented,Owner,GOV-05,R-11,
+5.33,Protection of records,Yes,Records have to be kept for a set time and then removed,Planned,Owner,DAT-06,R-10,2027-03-31
+5.34,Privacy and protection of PII,Yes,"The system holds health, religious and third-party personal data",Partly implemented,Owner,DAT-02; DAT-05; PRV-01; PRV-02; PRV-03; PRV-04,R-01; R-06; R-07; R-09; R-10; R-11; R-12; R-13; R-16; R-18,2027-03-31
+5.35,Independent review of information security,Yes,"Reviews need some independence, which is limited with one person",Planned,Owner,GOV-07,All,2027-05-31
+5.36,"Compliance with policies, rules and standards for information security",Yes,Controls have to be checked to confirm they're still followed,Planned,Owner,GOV-07; VUL-03,All; R-01; R-06; R-12; R-15,2027-05-31
+5.37,Documented operating procedures,Yes,Written procedures make recovery and repeat tasks reliable,Planned,Owner,GOV-01,All,2026-12-31
+6.1,Screening,No,No staff or contractors to screen. The owner is the only operator. Trigger: T-06,Excluded,n/a,HR-01,,
+6.2,Terms and conditions of employment,No,No employment or contractor terms exist. Trigger: T-06,Excluded,n/a,HR-01,,
+6.3,"Information security awareness, education and training",Yes,"The owner is the only operator, so the owner's knowledge is a control",Planned,Owner,HR-02,R-01; R-02; R-07,2026-12-31
+6.4,Disciplinary process,No,"No staff, so no disciplinary process is needed. Trigger: T-06",Excluded,n/a,HR-01,,
+6.5,Responsibilities after termination or change of employment,No,No employment to end or change. Trigger: T-06,Excluded,n/a,HR-01,,
+6.6,Confidentiality or non-disclosure agreements,No,"No staff, contractors or partners receive confidential information. Trigger: T-06",Excluded,n/a,HR-01,,
+6.7,Remote working,Yes,All administration is done from a home computer and a phone,Implemented,Owner,END-01,R-01; R-19,
+6.8,Information security event reporting,Yes,"Users need a way to report problems, and the owner needs to act on them",Planned,Owner,IR-01; PRV-01,R-01; R-02; R-06; R-07; R-10; R-11; R-16,2027-04-30
+7.1,Physical security perimeters,Yes,AWS data centers hold the data. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.2,Physical entry,Yes,AWS controls entry to its data centers. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.3,"Securing offices, rooms and facilities",Yes,AWS secures its facilities. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.4,Physical security monitoring,Yes,AWS monitors its facilities. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.5,Protecting against physical and environmental threats,Yes,AWS protects its facilities against physical and environmental threats. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.6,Working in secure areas,Yes,AWS controls work inside its secure areas. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.7,Clear desk and clear screen,Yes,"The owner's screens can show administrator sessions, so they lock",Implemented,Owner,END-01,R-01; R-19,
+7.8,Equipment siting and protection,Yes,AWS sites and protects its hardware. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.9,Security of assets off-premises,Yes,The owner's phone and computer can be lost or stolen,Implemented,Owner,END-01,R-01; R-19,
+7.10,Storage media,Yes,"The owner's disk holds code and sign-in data, so it's encrypted",Implemented,Owner,END-01,R-01; R-19,
+7.11,Supporting utilities,Yes,AWS provides power and other utilities. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.12,Cabling security,Yes,AWS protects its cabling. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.13,Equipment maintenance,Yes,AWS maintains its hardware. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+7.14,Secure disposal or re-use of equipment,Yes,AWS disposes of its media securely. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+8.1,User endpoint devices,Yes,The owner's devices are the real perimeter for a one-person operation,Implemented,Owner,END-01,R-01; R-19,
+8.2,Privileged access rights,Yes,Administrator and deploy rights could change the app or delete data,Partly implemented,Owner,IAM-07; IAM-08; IAM-09; IAM-10,R-01; R-02; R-05,2027-01-31
+8.3,Information access restriction,Yes,Each user must only reach their own records,Implemented,Owner,IAM-12; SDL-05,R-18,
+8.4,Access to source code,Yes,"A code change could defeat the encryption, so code access is restricted",Partly implemented,Owner,IAM-09; IAM-13,R-02; R-05,2027-01-31
+8.5,Secure authentication,Yes,Sign-in protects accounts and administrator routes,Partly implemented,Owner,IAM-02; IAM-03; IAM-04; IAM-07,R-01; R-02; R-07; R-16,2027-01-31
+8.6,Capacity management,Yes,Limits and alerts keep usage and cost under control,Implemented,Shared,LOG-04; AVL-01,R-01; R-14,
+8.7,Protection against malware,Yes,Malware on the owner's computer could reach AWS and GitHub,Implemented,Owner,END-01,R-01; R-19,
+8.8,Management of technical vulnerabilities,Yes,Vulnerable dependencies and settings have to be found and fixed,Partly implemented,Owner,VUL-01; VUL-02; VUL-03,R-01; R-05; R-06; R-12; R-15,2027-01-31
+8.9,Configuration management,Yes,"Infrastructure is defined in code, and its settings need to stay correct",Partly implemented,Owner,CHG-04; VUL-03; VUL-04; BCK-03,R-01; R-03; R-06; R-12; R-15,2027-01-31
+8.10,Information deletion,Yes,Data has to be removed when it's no longer needed or when a user asks,Planned,Owner,DAT-06,R-10,2027-03-31
+8.11,Data masking,Yes,"Record names and other metadata reveal some activity, so they're minimized",Planned,Owner,DAT-05,R-09,2027-03-31
+8.12,Data leakage prevention,Yes,Browser protections limit where data could be sent,Implemented,Owner,SDL-02,R-17,
+8.13,Information backup,Yes,Backups protect against loss. AWS runs them under settings the owner defines,Partly implemented,Shared,BCK-01; BCK-02; BCK-03; BCK-04,R-01; R-12,2026-11-30
+8.14,Redundancy of information processing facilities,Yes,Managed AWS services and a second backup region provide redundancy,Partly implemented,Shared,AVL-01; BCK-01; VND-02,R-01; R-02; R-12; R-14,2027-02-28
+8.15,Logging,Yes,Logs are needed to detect and investigate incidents,Planned,Owner,LOG-01; LOG-03; LOG-05,R-02; R-06,2027-01-31
+8.16,Monitoring activities,Yes,"Someone has to watch for abuse, unexpected deploys and cost spikes",Partly implemented,Owner,CHG-05; LOG-02; LOG-04; LOG-05,R-01; R-02; R-06; R-14,2027-01-31
+8.17,Clock synchronization,Yes,"AWS keeps service clocks in sync, which log timelines depend on. Relied on from AWS","Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+8.18,Use of privileged utility programs,Yes,"Privileged tools can bypass normal controls, so their use is limited",Unverified,Owner,IAM-08,R-01,2027-01-31
+8.19,Installation of software on operational systems,Yes,Software reaches production only through the controlled pipeline,Implemented,Owner,CHG-03,R-03,
+8.20,Networks security,Yes,Traffic limits protect the public API. AWS runs the underlying network,Implemented,Shared,AVL-01,R-14,
+8.21,Security of network services,Yes,AWS provides the network services. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+8.22,Segregation of networks,Yes,AWS separates customer networks. Relied on from AWS,"Relied on, unverified",AWS,VND-02,R-01; R-02; R-12; R-14,2027-02-28
+8.23,Web filtering,No,No organization network or staff browsing to filter. The owner's one computer has malware protection (END-01). Trigger: T-06,Excluded,n/a,,,
+8.24,Use of cryptography,Yes,Encryption is the system's core protection,Partly implemented,Shared,DAT-02; DAT-03; DAT-04,R-01; R-06; R-07; R-08; R-10; R-12; R-15; R-17; R-18,2027-01-31
+8.25,Secure development life cycle,Yes,Security is built into how the app is developed,Implemented,Owner,CHG-01; SDL-01,R-02; R-03; R-17; R-18,
+8.26,Application security requirements,Yes,The app must resist script injection and bad input,Implemented,Owner,SDL-02; SDL-03; SDL-04,R-14; R-17; R-18,
+8.27,Secure system architecture and engineering principles,Yes,The design keeps data unreadable to the server,Implemented,Owner,SDL-01; SDL-02,R-17; R-18,
+8.28,Secure coding,Yes,Secure coding rules limit injection and data exposure,Implemented,Owner,SDL-01; SDL-03; SDL-04,R-14; R-17; R-18,
+8.29,Security testing in development and acceptance,Yes,Automated checks and access tests run on every change,Implemented,Owner,CHG-02; SDL-05,R-03; R-18,
+8.30,Outsourced development,No,All development is done by the owner. Nothing is outsourced. Trigger: hiring a developer or contractor,Excluded,n/a,,,
+8.31,"Separation of development, test and production environments",Yes,"Development, test and production stay separate, and limits are written down",Implemented,Owner,SDL-06,R-03,
+8.32,Change management,Yes,"A changed app could defeat the encryption, so changes are controlled",Partly implemented,Owner,CHG-01; CHG-02; CHG-03; CHG-05; CHG-06,R-02; R-03; R-04; R-18,2026-12-31
+8.33,Test information,Yes,"Tests and the demo use made-up data, never real user data",Implemented,Owner,SDL-06,R-03,
+8.34,Protection of information systems during audit testing,Yes,Automated configuration checks must not put production at risk,Planned,Owner,VUL-03,R-01; R-06; R-12; R-15,2027-01-31
