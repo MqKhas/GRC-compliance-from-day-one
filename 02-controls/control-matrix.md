@@ -7,7 +7,7 @@
 | **As of** | 2026-11-05, app version `tracker@4af3f74` |
 | **Full matrix** | [control-matrix.csv](control-matrix.csv) (source of truth) and [control-framework.xlsx](control-framework.xlsx) (same data, with summary, risk trace and coverage sheets) |
 
-One set of controls for Khas Tracker, each mapped to SOC 2, ISO 27001:2022 Annex A, NIST CSF 2.0, NIST SP 800-53 Rev 5 and NIST SP 800-171 Rev 3, and traced to the risks it treats. Decisions D-009 and D-017 to D-029 in [PROGRESS.md](../PROGRESS.md).
+One set of controls for Khas Tracker, each mapped to SOC 2, ISO 27001:2022 Annex A, NIST CSF 2.0, NIST SP 800-53 Rev 5 and NIST SP 800-171 Rev 3, and traced to the risks it treats. Decisions D-009 and D-017 to D-031 in [PROGRESS.md](../PROGRESS.md).
 
 ## Status at a glance
 

@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Document owner** | Muhammad Khas |
-| **Version** | 0.1 (draft for owner review, D-030) |
+| **Version** | 1.0 (approved by M. Khas, D-030) |
 | **As of** | 2026-11-05, app version `tracker@4af3f74` |
 | **Standard** | ISO/IEC 27001:2022, clause 6.1.3 d, Annex A |
 | **Full statement** | [statement-of-applicability.csv](statement-of-applicability.csv), and the *Statement of Applicability* sheet in [control-framework.xlsx](control-framework.xlsx) |

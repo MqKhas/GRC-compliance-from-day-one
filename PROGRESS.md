@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|
 | 0 | Scope & system description | 2026-10-27 | 2026-10-31 | | `v0.1-scope` |
 | 1 | Risk assessment | 2026-10-31 | 2026-10-31 | | `v0.2-risk` |
-| 2 | Control framework & mapping | 2026-10-31 | | | |
+| 2 | Control framework & mapping | 2026-10-31 | 2026-11-05 | | `v0.3-controls` |
 | 3 | Policies | | | | |
 | 4 | Evidence automation | | | | |
 | 5 | Third-party risk | | | | |
@@ -50,10 +50,12 @@ Every scoping, risk and treatment decision, with the options I considered and wh
 | D-027 | 2026-11-05 | Keep SOC 2 Processing Integrity out of scope, with a trigger: add it if the service ever processes transactions or produces results for users on the server | Add it with Availability | Paid access doesn't make the system process anything for users: it stores ciphertext it can't read, and a payment provider (a vendor) would take payments. Claiming the category would mean controls with nothing to test | M. Khas |
 | D-028 | 2026-11-05 | Approve the common control matrix (67 controls) as version 1.0 | Ask for changes before approving | Reviewed in the workbook. Statuses, owners, frequencies, mappings and risk traces accepted as they are | M. Khas |
 | D-029 | 2026-11-05 | Update the data inventory for the Parenting section now (D-30 to D-34, new `MINOR` flag) and widen the wording of R-09 (child count is visible from record names) and R-11 (children's data in the law analysis). Scores unchanged | Wait for Phase 6 | The feature shipped 2026-11-04. Keeping the inventory current when a feature adds data is what DAT-01 promises. The new exposure is metadata the existing R-09 treatment already targets | M. Khas |
-| D-030 | 2026-11-05 | Statement of Applicability: 85 Annex A controls apply and 8 are excluded (5.11, 6.1, 6.2, 6.4, 6.5, 6.6, 8.23, 8.30). Data center controls stay applicable and are marked as provided by AWS | Exclude the data center controls; include the staff controls with no activity behind them | The excluded controls need staff, contractors or an office network, and none exist. AWS's physical controls still protect this system, so they count as relied on rather than excluded, and Phase 5 checks them | Proposed, awaiting M. Khas |
+| D-030 | 2026-11-05 | Statement of Applicability: 85 Annex A controls apply and 8 are excluded (5.11, 6.1, 6.2, 6.4, 6.5, 6.6, 8.23, 8.30). Data center controls stay applicable and are marked as provided by AWS | Exclude the data center controls; include the staff controls with no activity behind them | The excluded controls need staff, contractors or an office network, and none exist. AWS's physical controls still protect this system, so they count as relied on rather than excluded, and Phase 5 checks them | M. Khas |
+| D-031 | 2026-11-05 | Tailor the SP 800-53 AC family from the moderate baseline: keep 28 (6 with parameters), compensate 3, scope out 8, add AC-12(1). Parameters include flagging accounts with no sync for 180 days for the owner's review with nothing disabled or deleted automatically, and disabling high-risk accounts within 24 hours. Accept the risk of a phone left unlocked with the app open, since the app has no idle lock | Disable inactive accounts automatically; add an idle lock to the app; keep every baseline control | Users are family and friends who may pause for months. Keeping a phone locked is the user's responsibility, and user guidance will say so; reviewed if paid access starts (T-05). Scoped-out controls have nothing to act on here, each with a stated way back in | M. Khas |
 
 ## Session notes
 
 - 2026-10-27: Repo set up. Phase 0 started.
 - 2026-10-31: Phase 0 finished: system description, boundary and data flow diagrams, data inventory (29 elements), compliance triggers (T-01 to T-10), ISMS scope statement. Decisions D-001 to D-009.
 - 2026-10-31: Phase 1 finished: risk methodology (SP 800-30, ISO 27001 6.1.2), asset and threat register, risk register (19 risks, CSV and workbook), risk treatment plan (ISO 27001 6.1.3), approved by the risk owner. Decisions D-010 to D-016.
+- 2026-11-05: Phase 2 finished: framework applicability, common control matrix (67 controls, CSV and workbook), ISO 27001 Statement of Applicability (93 Annex A controls), and the SP 800-53 AC family tailored from the moderate baseline. Data inventory updated for the Parenting section. Decisions D-017 to D-031.
