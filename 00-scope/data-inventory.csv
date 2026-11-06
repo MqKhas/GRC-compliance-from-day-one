@@ -9,6 +9,11 @@ D-07,User content,"Home & Marriage tasks, chores, notes, plans",THIRD-PARTY,Rest
 D-08,User content,"Friends & Family names, relation, last contact, notes",THIRD-PARTY,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
 D-09,User content,"Goals, weekly reviews, sick and travel days, follow-ups",HEALTH,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
 D-10,User content,"Settings and lists",,Internal,"Device; DynamoDB; backups",No,Ciphertext,"Until user or account deletion; backups up to 3 years"
+D-30,User content,"Parenting settings: who gives birth, partner name, units, feeding choice, checklists","HEALTH; THIRD-PARTY",Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user deletes Parenting data or the account; backups up to 3 years"
+D-31,User content,"Children's profiles: name, due date, birth date, adopted, plan and milestone marks","THIRD-PARTY; MINOR",Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user deletes Parenting data or the account; backups up to 3 years"
+D-32,User content,"Children's logs: measurements, firsts, visits, vaccines, medicines, allergies, All About Me answers","HEALTH; THIRD-PARTY; MINOR",Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user deletes Parenting data or the account; backups up to 3 years"
+D-33,User content,"Care team: names, roles, phone numbers, notes",THIRD-PARTY,Restricted,"Device; DynamoDB; backups",No,Ciphertext,"Until user deletes Parenting data or the account; backups up to 3 years"
+D-34,User content,"Parenting calendar file (.ics) with children's names and tasks","THIRD-PARTY; MINOR",Restricted,"Device; user's own calendar provider after import",No,Not in this system's cloud,"Until user deletes the file and events"
 D-11,Keys and secrets,"Data passphrase",CREDENTIAL,Restricted,"User's memory only",No,Not stored,n/a
 D-12,Keys and secrets,"Recovery code",CREDENTIAL,Restricted,"Shown once on device; optionally in user's own mailbox",No,Not stored,Until replaced
 D-13,Keys and secrets,"Keyring (wrapped data key)",CREDENTIAL,Restricted,"Device; DynamoDB; backups",Wrapped form only,Ciphertext,"Life of account; backups up to 3 years"
@@ -19,7 +24,7 @@ D-17,Account,"TOTP secret",CREDENTIAL,Restricted,"Cognito; user's authenticator"
 D-18,Account,"Account status and timestamps",,Confidential,Cognito,Yes,AWS-managed encryption,Life of account
 D-19,Account,"Session tokens",CREDENTIAL,Restricted,Device,No,Not in cloud,"1 hour; refresh 30 days"
 D-20,Account,"Temporary password in invitation email",CREDENTIAL,Restricted,"SES; user's mailbox",No,In transit,"Valid 7 days; stays in mailbox"
-D-21,Metadata,"Record names, timestamps, version, size, deleted flag",,Confidential,"DynamoDB; backups",Yes,AWS-managed encryption,Same as record
+D-21,Metadata,"Record names (including kid# and kidlog# keys, which show the number of children), timestamps, version, size, deleted flag",MINOR (count only),Confidential,"DynamoDB; backups",Yes,AWS-managed encryption,Same as record
 D-22,Operational,"Lambda error logs",,Internal,CloudWatch Logs,Yes,AWS-managed encryption,14 days
 D-23,Operational,"Billing and budget alerts",,Internal,"AWS; admin email",Yes,n/a,Per AWS and mailbox
 D-24,Operational,"User support requests",,Confidential,"Admin phone and email",Yes,n/a,Not defined

@@ -98,3 +98,49 @@ At the end of each phase I quiz myself on what I just built. For each question: 
 **Feedback:** Correct, but it only answers half the question. You said why the database dropped, not what rose to the top instead, or why. The insight is that encryption happens in code you deliver. Whoever controls that code can capture the passphrase *before* encryption happens. So the risk moves from where the data sits to where the code comes from.
 
 **Model answer:** "Because a stolen table is ciphertext. Encryption cuts a database breach down to metadata and availability. But encryption runs in code I deliver to the browser, and whoever controls that code can capture the passphrase before anything is encrypted. So my top risks are about who can change the code or the account it runs in: my admin identity, my GitHub account, the deploy pipeline's dependencies, and unreviewed changes. Encryption didn't remove the risk; it moved it from the data to the code path."
+
+## Phase 2 — Control framework & mapping (2026-11-05)
+
+### Q1. "Why can one control map to SOC 2, ISO 27001 and NIST at the same time, and what does that save you?"
+
+**My answer:** One control can map to these different standards because the frameworks have different end goals/for different situations, but the way you get to the end goal is sometimes similar. Having a 12 character password, or 2fa are all controls around passwords and you need to have proper controls around access to reach your end goal, no matter the different framework.
+
+**Feedback:** The reasoning is right: different frameworks, same underlying safeguards. Two things to add:
+- You answered why it works, but not what it saves. You build and test the control once, and collect one set of evidence that answers every framework. Without that, you'd run a separate program for each.
+- Use your real numbers. Passwords here are at least 10 characters, plus an authenticator code. Quoting a number from your own system shows you know it.
+
+**Model answer:** "Frameworks ask different questions for different audiences, but they want many of the same safeguards. Multi-factor sign-in satisfies SOC 2 CC6.1, ISO 8.5, CSF PR.AA-03 and 800-53 IA-2 at once. So I write each control once and map it, which means one control to run and one set of evidence for every framework. A new framework becomes a new mapping column, not a new program. A mapping only means the control contributes to a requirement, not that it meets it alone."
+
+### Q2. "Why is ISO control 6.1 (Screening) excluded, but 7.1 (Physical security perimeters) isn't, when you own no data center?"
+
+**My answer:** Because we explained why it's not relevant, but 7.1 is still there cuz there is still physical security around the users device they are using to access the trackere.
+
+**Feedback:** The 6.1 half needs the actual reason, and the 7.1 half is mistaken.
+- "We explained why" is what an exclusion needs, but an auditor wants the explanation itself: there are no staff or contractors to screen.
+- 7.1 isn't about users' devices. It's about the data centers that hold the data, and AWS provides that protection. Devices are 8.1 and 7.9, and users' own phones are outside what this system manages.
+- The key idea is the difference between "doesn't exist" and "someone else does it". No staff means screening has nothing to act on. AWS's physical security still protects the data, so it stays in, marked as provided by AWS.
+
+**Model answer:** "Screening has nothing to act on, because I'm the only operator. It comes back if a second person gets admin access, under trigger T-06. Physical security is different: the data sits in real data centers, and those controls still protect it. AWS provides them rather than me, so they stay applicable and are marked as provided by AWS. I don't take them on trust either: they stay unverified until I review AWS's audit reports in Phase 5."
+
+### Q3. "What's the difference between a compensating control and scoping a control out? Give one example of each."
+
+**My answer:** Compensating control is when an alternative safeguard is in place when the primary control cant be applied, scoping out is when you say this control isn't in scope of this framework. We scoped out the rest of my muhammad-khas.com site because it had nothing to do with the tracker even though it was on the same domain. A compensating control we had was we increased our monitoring of accounts, fi accounts are inactive we will review them every x days.
+
+**Feedback:** The compensating definition is right. The rest needs adjusting:
+- Scoping a control out means the control has nothing to act on in this system. The framework stays the same.
+- Your website example is a real scoping decision, but it's about the **system boundary** (Phase 0), not about a control.
+- The inactive account review isn't a compensating control. AC-2(3) is met directly, and 180 days is a **parameter value**. The real examples are below.
+- The test: if the need exists but the control can't be done, you compensate. If the need doesn't exist, you scope out.
+
+**Model answer:** "A compensating control gives similar protection when the real control can't be done, so the need is still there. AC-5 separation of duties is impossible with one person, so a pull request with a self-review checklist, automated checks and a deploy notice stand in. Scoping out means the need isn't there. AC-18 wireless access has nothing to act on, because the service runs no wireless network. Both need a written reason, and a scoped-out control needs a way back in if the system changes."
+
+### Q4. "End-to-end encryption is your main compensating control. Name one thing it doesn't protect against, and which controls cover that."
+
+**My answer:** E2EE doesn't protect against phishing attacks. If someone uploaded malicious code, then they could see the data.
+
+**Feedback:** Your second sentence is the answer. The first is only partly right.
+- Malicious code is the key weakness: a changed app could capture the passphrase before anything is encrypted.
+- Phishing is more of a route to that. Phishing a user's login alone gets only ciphertext, because the passphrase is separate. Phishing an admin could lead to a changed app.
+- You didn't name the controls, and that was half the question.
+
+**Model answer:** "It doesn't protect against a changed app. Encryption runs in code I deliver, so a malicious build could capture the passphrase before anything is encrypted. That's why the code path carries the weight: phishing-resistant admin sign-in (IAM-07) protects who can deploy, pull requests and CI (CHG-01, CHG-02) control what gets deployed, and the deploy notice and user-visible changelog (CHG-05, CHG-06) make an unexpected change visible."

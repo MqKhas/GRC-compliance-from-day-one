@@ -1,6 +1,8 @@
 # Data Inventory & Classification
 
-As of 2026-10-29, system version `tracker@9124656`. The machine-readable version is [data-inventory.csv](data-inventory.csv).
+As of 2026-11-05, system version `tracker@4af3f74`. The machine-readable version is [data-inventory.csv](data-inventory.csv).
+
+Revision 2026-11-05 (D-029): added the Parenting section (shipped 2026-11-04), as D-30 to D-34, a new `MINOR` flag, and the new record names in D-21.
 
 ## Classification scheme
 
@@ -11,7 +13,7 @@ As of 2026-10-29, system version `tracker@9124656`. The machine-readable version
 | **Internal** | Not meant to be public, low harm if exposed | App preferences, logs without personal data |
 | **Public** | Meant to be public | App files served to browsers, demo sample data |
 
-Separate from the level, a **sensitivity flag** marks data that many privacy laws treat as special: `HEALTH`, `MENTAL-HEALTH`, `RELIGION`, `THIRD-PARTY` (about someone who isn't the user), `CREDENTIAL`.
+Separate from the level, a **sensitivity flag** marks data that many privacy laws treat as special: `HEALTH`, `MENTAL-HEALTH`, `RELIGION`, `THIRD-PARTY` (about someone who isn't the user), `MINOR` (about a child under 18), `CREDENTIAL`.
 
 ## Inventory
 
@@ -29,6 +31,11 @@ Separate from the level, a **sensitivity flag** marks data that many privacy law
 | D-08 | Friends & Family list: names, relation, last contact, conversation notes | THIRD-PARTY | Restricted | Same as D-01 | No | Same as D-01 |
 | D-09 | Goals, weekly reviews, sick and travel days, follow-ups | HEALTH (sick days) | Restricted | Same as D-01 | No | Same as D-01 |
 | D-10 | Settings and lists (sections on/off, order, targets, custom exercises) | — | Internal | Same as D-01 | No | Same as D-01 |
+| D-30 | Parenting settings: who gives birth, partner name, units, feeding choice, household and registry checklists | HEALTH, THIRD-PARTY | Restricted | Same as D-01 | No | Same as D-01, or until the user deletes Parenting data |
+| D-31 | Children's profiles: name, due date, birth date, adopted, plan and milestone marks | THIRD-PARTY, MINOR | Restricted | Same as D-01 | No | Same as D-30 |
+| D-32 | Children's logs: measurements, firsts, doctor visits, vaccines, medicines, allergies, "All About Me" answers | HEALTH, THIRD-PARTY, MINOR | Restricted | Same as D-01 | No | Same as D-30 |
+| D-33 | Care team: names, roles, phone numbers, notes | THIRD-PARTY | Restricted | Same as D-01 | No | Same as D-30 |
+| D-34 | Parenting calendar file (`.ics`): event titles and notes that include children's names and tasks | THIRD-PARTY, MINOR | Restricted | Made on the device and never sent to the service. Leaves the system when the user imports it into their own calendar provider | No | Until the user deletes the file and the calendar events |
 
 ### B. Keys and secrets
 
@@ -54,7 +61,7 @@ Separate from the level, a **sensitivity flag** marks data that many privacy law
 
 | ID | Data | Flags | Level | Stored where | Admin can read? | Retention |
 |---|---|---|---|---|---|---|
-| D-21 | Record names (`day#YYYY-MM-DD`, `week#…`, `month#…`, `config#<name>`), timestamps, version, size, deleted flag | — | Confidential | DynamoDB; backups | **Yes**. Shows which days a user logged something | Same as the record |
+| D-21 | Record names (`day#YYYY-MM-DD`, `week#…`, `month#…`, `config#<name>`, `kid#<random id>`, `kidlog#<random id>`), timestamps, version, size, deleted flag | MINOR (count only) | Confidential | DynamoDB; backups | **Yes**. Shows which days a user logged something, that Parenting is in use, and how many children are set up | Same as the record |
 | D-22 | Lambda logs (errors) | — | Internal | CloudWatch Logs | Yes | 14 days |
 | D-23 | Billing and budget alerts | — | Internal | AWS; administrator's email | Yes | Per AWS and the mailbox |
 | D-24 | User support requests (texts, emails) | — | Confidential | Administrator's phone and email. Not logged | Yes | Not defined |
@@ -76,3 +83,5 @@ Separate from the level, a **sensitivity flag** marks data that many privacy law
 3. **End-to-end encryption changes who can see what.** The administrator can't read any of section A. But metadata (D-21) and account data (D-15, D-18) are readable, so the privacy analysis can't say "we see nothing."
 4. **Retention is defined by technology, not by policy.** The longest retention (3 years of backups) comes from a setting in the stack, not from a decision about how long data should be kept. Phase 6 sets a retention schedule.
 5. **Support requests aren't recorded (D-24).** There's no way to show that a deletion request was received and handled.
+6. **Parenting adds health data about children who aren't users (D-31, D-32).** It's encrypted like everything else, and COPPA doesn't apply because adults record it, not children. But it's the most sensitive data in the system, and Phase 6 checks how privacy laws treat data about children. The server can count children from the record names (D-21), which risk R-09 covers.
+7. **One Parenting output leaves the system on purpose (D-34).** The calendar file goes to the user's own calendar provider. The app tells users before they make it. After import, the provider's terms apply, not this system's.
